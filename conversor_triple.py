@@ -19,4 +19,41 @@ rotulo_titulo = tk.Label(ventana,
                          padx=10, pady=10)
 rotulo_titulo.pack(padx=20, pady=20)
 
+# Desplegables y rótulos
+
+rotulo_entrada = tk.Label(ventana,
+                          text="Temperatua entrada: ",
+                          bg="lightblue", fg="black",
+                          font="consolas 14 bold",
+                          bd=2)
+rotulo_entrada.pack()
+
+temp_entrada = tk.StringVar()
+desplegable_entrada = ttk.Combobox(ventana,
+                                   font="consolas 14 bold",
+                                   width=16,
+                                   values=["Celsius", "Fahrenheit", "Kelvin"],
+                                   state="readonly",
+                                   textvariable=temp_entrada)
+desplegable_entrada.pack(pady=5)
+desplegable_entrada.set("Celsius")
+
+rotulo_salida = tk.Label(ventana,
+                         text="Temperatura salida",
+                         bg="lightblue", fg="black",
+                         font="consolas 14 bold",
+                         bd=2)
+rotulo_salida.pack()
+
+temp_salida = tk.StringVar()
+desplegable_salida = ttk.Combobox(ventana,
+                                  font="consolas 14 bold",
+                                  width=16,
+                                  values=["Celsius", "Farenheit", "Kelvin"],
+                                  state="readonly",
+                                  textvariable=temp_salida)
+desplegable_salida.pack(pady=5)
+desplegable_salida.set("Farenheit")
+
+
 ventana.mainloop()
