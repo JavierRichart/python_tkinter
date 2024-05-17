@@ -17,6 +17,7 @@ def convertir():
         entrada = temp_entrada.get()
         salida = temp_salida.get()
         grados = float(entrada_grados.get())
+
         if entrada == salida:
             resultado = grados
         elif entrada == "Celsius" and salida == "Fahrenheit":
@@ -31,17 +32,20 @@ def convertir():
             resultado = round(((grados - 32) / 1.8) + 273.15, 2)
         elif entrada == "Kelvin" and salida == "Fahrenheit":
             resultado = round(((grados - 273.15) * 1.8) + 32, 2)
+        else:
+            resultado = None
 
-        if redondeo.get():
-            resultado = round(resultado)
+        if resultado is not None:
+            if redondeo.get():
+                resultado = round(resultado)
 
-        if simbolo.get():
-            if salida == "Celsius":
-                resultado = f"{resultado}\u00B0C"
-            elif salida == "Farenheit":
-                resultado = f"{resultado}\u00B0C"
-            else:
-                resultado = f"{resultado} K"
+            if simbolo.get():
+                if salida == "Celsius":
+                    resultado = f"{resultado}\u00B0C"
+                elif salida == "Fahrenheit":
+                    resultado = f"{resultado}\u00B0F"
+                else:
+                    resultado = f"{resultado} K"
 
             rotulo_resultado.config(text=resultado)
             entrada_grados.config(state="disabled")
@@ -100,11 +104,11 @@ temp_salida = tk.StringVar()
 desplegable_salida = ttk.Combobox(ventana,
                                   font="consolas 14 bold",
                                   width=16,
-                                  values=["Celsius", "Farenheit", "Kelvin"],
+                                  values=["Celsius", "Fahrenheit", "Kelvin"],
                                   state="readonly",
                                   textvariable=temp_salida)
 desplegable_salida.pack(pady=5)
-desplegable_salida.set("Farenheit")
+desplegable_salida.set("Fahrenheit")
 
 cuadro1 = tk.Frame(ventana,
                    bg="lightblue")
