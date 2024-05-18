@@ -113,7 +113,7 @@ desplegable_salida.set("Fahrenheit")
 cuadro1 = tk.Frame(ventana,
                    bg="lightblue")
 rotulo_primero = tk.Label(cuadro1,
-                          text="Celsius:   ",
+                          text="Entrada:   ",
                           bg="lightblue",
                           font="consolas 18 bold")
 rotulo_primero.pack(side=tk.LEFT, padx=20, pady=20)
