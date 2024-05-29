@@ -4,6 +4,12 @@ import tkinter as tk
 
 ventana = tk.Tk()
 # ventana.geometry("600x500+500+100")
+ventana.columnconfigure(0, weight=1)
+ventana.columnconfigure(1, weight=1)
+ventana.columnconfigure(2, weight=1)
+
+ventana.rowconfigure(0, weight=1)
+ventana.rowconfigure(1, weight=1)
 
 # Aplicación
 
